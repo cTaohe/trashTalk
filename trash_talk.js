@@ -1,39 +1,30 @@
-const character = require('./character.json')
+// include character.json
+const character = require('./character.json').results
+
+//setting handlebars helper for input radio checked or not
 const Handlebars = require('handlebars')
+Handlebars.registerHelper('ifEquals', (value1, value2) => (value1 === value2) ? 'checked' : '')
 
-Handlebars.registerHelper('ifEquals', function (arg1, arg2, options) {
-  return (arg1 == arg2) ? options.fn(this) : options.inverse(this)
-})
-
+// trash talk's phrase array
 const phrase = ['很簡單','很容易','很快','很正常']
 
+// random number
 function randomIndex(arr) {
   const index = Math.floor(Math.random() * arr.length)
   return arr[index]
 }
 
+// generate trash talk sentences
 function trashTalk(option) {
-  let collection = ''
-  let selectedJob = ''
-  let trashWord = ''
 
-  if (!option.job) return collection = '誰甚麼都沒選呢!'
+  if (!option.job) return '誰都還沒選呢!'
 
-  if (option.job === 'engineer') {
-    selectedJob = '工程師'
-    trashWord = `${randomIndex(character.results[0].trash)}${randomIndex(phrase)}`
+  for (let value of character) {
+    if (option.job === value.job_en) {
+      return `身為一個${value.job},${randomIndex(value.trash)}應該${randomIndex(phrase)}!` 
+    }
   }
-  if (option.job === 'designer') {
-    selectedJob = '設計師'
-    trashWord = `${randomIndex(character.results[1].trash)}${randomIndex(phrase)}`
-  }
-  if (option.job === 'entrepreneur') {
-    selectedJob = '創業家'
-    trashWord = `${randomIndex(character.results[2].trash)}${randomIndex(phrase)}`
-  }
- 
-  // collection = `身為一個${selectedJob}，${trashWord}`
-  return collection  = `身為一個${selectedJob}，${trashWord}`
 }
 
+// export trashTalk function
 module.exports = trashTalk

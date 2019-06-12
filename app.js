@@ -16,9 +16,11 @@ const port = 3000
 app.use(bodyParser.urlencoded({ extended: true }))
 
 // setting template engine
-
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
+
+// setting static page
+app.use(express.static('public'))
 
 // handle request and response
 app.get('/', (req, res) => {
