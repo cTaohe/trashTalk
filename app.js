@@ -11,7 +11,6 @@ const exphbsHelper = require('./exphbsHelper')
 // setting character
 const characters = require('./character.json')
 
-
 // define server related variable
 const port = 3000
 
