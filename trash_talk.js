@@ -1,12 +1,6 @@
-// include character.json
-const character = require('./character.json').results
-
-//setting handlebars helper for input radio checked or not
-const Handlebars = require('handlebars')
-Handlebars.registerHelper('ifEquals', (value1, value2) => (value1 === value2) ? 'checked' : '')
-
-// trash talk's phrase array
-const phrase = ['很簡單','很容易','很快','很正常']
+// include characters and phrase form character.json
+const characters = require('./character.json')
+const character = characters.character
 
 // random number
 function randomIndex(arr) {
@@ -21,7 +15,7 @@ function trashTalk(option) {
 
   for (let value of character) {
     if (option.job === value.job_en) {
-      return `身為一個${value.job},${randomIndex(value.trash)}應該${randomIndex(phrase)}!` 
+      return `身為一個${value.job},${randomIndex(value.trash)}應該${randomIndex(characters.phrase)}!` 
     }
   }
 }

@@ -5,6 +5,9 @@ const bodyParser = require('body-parser')
 const trashTalk = require('./trash_talk.js')
 const app =express()
 
+// include handlerbars helper
+const exphbsHelper = require('./exphbsHelper')
+
 // setting character
 const characters = require('./character.json')
 
@@ -24,13 +27,13 @@ app.use(express.static('public'))
 
 // handle request and response
 app.get('/', (req, res) => {
-  res.render('index', {characters: characters.results})
+  res.render('index', {characters: characters.character})
 })
 
 app.post('/', (req, res) => {
   const option = req.body
   const trashSentence = trashTalk(option)
-  res.render('index' , { characters: characters.results, option: option, trashSentence: trashSentence })
+  res.render('index' , { characters: characters.character, option: option, trashSentence: trashSentence })
 
 })
 
