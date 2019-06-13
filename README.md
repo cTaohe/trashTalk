@@ -1,6 +1,6 @@
 # Trash Talk
 
-This is a trash talk application which you can selector characters to generate trash talk.
+This is a trash talk application which you can select characters to generate trash talk.
 
 ### Important setting
 
