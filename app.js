@@ -3,7 +3,7 @@ const express = require('express')
 const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
 const trashTalk = require('./trash_talk.js')
-const app =express()
+const app = express()
 
 // include handlerbars helper
 const exphbsHelper = require('./exphbsHelper')
