@@ -1,10 +1,10 @@
 # Trash Talk
 
-This is a trash talk application which you can selector characters to generate trash talk.
+This is a trash talk application which you can select characters to generate trash talk.
 
 ### Important setting
 
-- app.js : inculed all scripts to start the server in this file.
+- app.js : include all scripts to start the server in this file.
 - character.json : There are characters and pharse in this json. if you want you can add more characters and pharse.
 - exphbsHelper.js : customize handlebars helper.
 
