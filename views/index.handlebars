@@ -13,7 +13,7 @@
                 <img class="card-img-top" src="{{ this.image }}" alt="{{ this.job_en }}">
               </div>
               <div class="card-body text-center bg-info text-white">
-                <input type="radio" id="{{ this.job_en }}" name="job" value="{{ this.job_en }}" {{ifEquals job_en ../option.job}}>
+                <input type="radio" id="{{ this.job_en }}" name="job" value="{{ this.job_en }}" {{ifEquals this.job_en ../option.job}}>
                 <label for="job">{{ this.job }}</label>
               </div>
             </div>
