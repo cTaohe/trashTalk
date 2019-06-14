@@ -11,9 +11,7 @@ function randomIndex(arr) {
 function trashTalk(job) {
   const man = characters.character.find( person => person.job_en === job)
 
-  if (job) return `身為一個${man.job},${randomIndex(man.trash)}應該${randomIndex(characters.phrase)}!` 
-
-  return '誰都還沒選呢!'  
+  return job ? `身為一個${man.job},${randomIndex(man.trash)}應該${randomIndex(characters.phrase)}!`: '誰都還沒選呢!'
 }
 
 // export trashTalk function
