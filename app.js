@@ -30,9 +30,9 @@ app.get('/', (req, res) => {
 })
 
 app.post('/', (req, res) => {
-  const job = req.body.job
-  const trashSentence = trashTalk(job)
-  res.render('index' , { characters: characters.character, job: job, trashSentence: trashSentence })
+  const option = req.body
+  const trashSentence = trashTalk(option.job)
+  res.render('index' , { characters: characters.character, option: option, trashSentence: trashSentence })
 
 })
 

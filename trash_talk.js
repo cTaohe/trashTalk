@@ -10,14 +10,11 @@ function randomIndex(arr) {
 
 // generate trash talk sentences
 function trashTalk(job) {
+  const man = character.find( person => person.job_en === job)
 
-  if (!job) return '誰都還沒選呢!'
+  if (job) return `身為一個${man.job},${randomIndex(man.trash)}應該${randomIndex(characters.phrase)}!` 
 
-  for (let value of character) {
-    if (job === value.job_en) {
-      return `身為一個${value.job},${randomIndex(value.trash)}應該${randomIndex(characters.phrase)}!` 
-    }
-  }
+  return '誰都還沒選呢!'  
 }
 
 // export trashTalk function
